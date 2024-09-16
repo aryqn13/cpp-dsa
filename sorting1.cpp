@@ -26,7 +26,7 @@ int selection_sort(int n,int arr[]){
     
 }
 
-// takes maximum to the last
+// takes maximum to the last by adjacent swaps
 int bubble_sort(int n, int arr[]){
 
     for (int i = n - 1; i >= 0; i--) {
@@ -46,6 +46,23 @@ int bubble_sort(int n, int arr[]){
     cout << "\n";
 }
 
+void insertion_sort(int n, int arr[]) {
+    for (int i = 0; i <= n - 1; i++) {
+        int j = i;
+        while (j > 0 && arr[j - 1] > arr[j]) {
+            int temp = arr[j - 1];
+            arr[j - 1] = arr[j];
+            arr[j] = temp;
+            j--;
+        }
+    }
+    cout << "After Using insertion sort: " << "\n";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << "\n";
+    }
+
 int main() {
     int arr[] = {13,46,24,52,20,9};
   int n = sizeof(arr) / sizeof(arr[0]);
@@ -57,5 +74,6 @@ int main() {
   selection_sort(n, arr);
   cout<<"\n";
   bubble_sort(n,arr);
+  insertion_sort(n,arr);
     return 0;
 }
